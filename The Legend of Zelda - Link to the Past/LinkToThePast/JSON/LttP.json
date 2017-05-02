@@ -1,0 +1,62 @@
+{
+  "tiles" : {
+    "W": ["solid", "wall"],
+    ".": ["passable", "ground"],
+    "e": ["empty"],
+    "t": ["solid", "throwable"],
+    "T": ["solid", "throwable", "contains_heart"],
+    "B": ["solid", "breakable"],
+    "D": ["door", "unlocked"],
+    "L": ["door", "key_locked"],
+    "E": ["door", "enemy_locked"],
+    "S": ["stairway"]
+  },
+
+  "tile_rules" : {
+    "unlock_door_key" : {
+      "tile_tags" : ["door", "key_locked"],
+      "transition_tags" : {"persistent": true, "permanent" : true},
+      "changes_to" : ["door", "unlocked"],
+      "guard" : [
+        {"type": "resource", "res_type":"key", "op":">", "value":0}
+        {"type": "colliding", "tags_1": ["this"], "tags_2": ["player"]}
+      ],
+      "updates" : [
+        {"type": "resource", "res_type":"key", "change":"-1"}
+      ]
+    },
+    "unlock_door_enemy" : {
+      "tile_tags" : ["door", "enemy_locked"],
+      "transition_tags" : {"persistent": false, "permanent": false},
+      "changes_to" : ["door", "unlocked"],
+      "guard" : [
+        {"type": "count", "tags": "enemy", "op": "=", "count": 0}
+      ],
+      "updates" : []
+    },
+    "break_item" : {
+      "tile_tags" : ["solid", "breakable"],
+      "transition_tags" : {"persistent": false, "permanent": false},
+      "changes_to": ["passable", "ground"],
+      "guard" : [
+        {"type": "hit", "hurtbox": "this.hurtbox", "hitbox": "player.sword"}
+      ],
+      "updates" : []
+    },
+    "grab_throwable" : {
+      "tile_tags" : ["solid", "throwable"],
+      "transition_tags" : {"persistent": false, "permanent": false},
+      "changes_to": ["passable", "ground"],
+      "guard" : [
+        {"type": "hit", "hurtbox": "this.hurtbox", "hitbox": "player.grab"}
+      ],
+      "updates" : [
+        {"type": "state_change", "obj": "player", "group": "holding", "state": "throwable"},
+
+        "#####How can we check if tile also has 'contains_heart' tag?#####",
+        {"type": "spawn", "obj": "heart", "x": "this.x", "y": "this.y"}
+      ]
+    }
+
+  }
+}

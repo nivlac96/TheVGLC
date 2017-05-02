@@ -1,0 +1,20 @@
+{
+  "objects": [
+    {"tags": ["enemy", "skeleton"],
+        "definition": "skeleton.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 32, "y": 50, "layer": 1},
+          {"x": 50, "y": 60, "layer": 1},
+          {"x": 71, "y": 50, "layer": 1}
+        ]
+    }
+    {"tags": ["chest", "bow"],
+        "definition": "chest.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 40, "y": 40, "layer": 1},
+        ]
+    }
+  ]
+}
