@@ -1,0 +1,33 @@
+{
+  "room_tags": ["dark"],
+  "objects": [
+    {"tags": ["enemy", "popo"],
+        "definition": "popo.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 0, "y": 0, "layer": 1},
+          {"x": 0, "y": 0, "layer": 1},
+          {"x": 0, "y": 0, "layer": 1},
+          {"x": 0, "y": 0, "layer": 1},
+          {"x": 0, "y": 0, "layer": 1},
+          {"x": 0, "y": 0, "layer": 1}
+        ]
+    },
+    {"tags": ["enemy", "rocklops"],
+        "definition": "rocklops.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 0, "y": 0, "layer": 1},
+          {"x": 0, "y": 0, "layer": 1, "drops": "key"}
+        ]
+    },
+    {"tags": ["pot", "throwable", "solid", "breakable"],
+        "definition": "pot.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 0, "y": 0, "layer": 1, "contents": "heart"},
+          {"x": 0, "y": 0, "layer": 1, "contents": "magic_decanter"}
+        ]
+    }
+  ]
+}

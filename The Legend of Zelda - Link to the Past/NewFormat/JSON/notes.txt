@@ -1,0 +1,38 @@
+TODOs:
+All tilemaps
+Links in master json file
+Enter exact coordinates in json files
+
+Questions:
+Model door and switch as single hyped object?
+	- give each element an id in its instance tags
+How to model falling portal?
+
+
+Tilemap objects (defined in tile_rules):
+	all doors
+		switch
+		enemy
+		key
+	switches
+	statues
+
+Objects (to be defined in objects):
+	all enemies
+	jar
+	chests
+
+
+List of objects to be modelled:
+jar
+small chest
+gargantuan ball (flying ball)
+movable block
+switch door
+switch
+falling portal
+
+Enemies:
+popo (squiggly dude)
+bubble (stalfos ball)
+rocklops

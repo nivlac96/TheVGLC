@@ -1,0 +1,11 @@
+{
+  "objects": [
+    {"tags": ["chest", "compass"],
+        "definition": "chest.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 40, "y": 40, "layer": 1, "contents": "compass"}
+        ]
+    }
+  ]
+}

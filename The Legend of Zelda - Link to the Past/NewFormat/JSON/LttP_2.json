@@ -1,0 +1,13 @@
+{
+  "objects": [
+    {"tags": ["enemy", "popo"],
+        "definition": "popo.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 0, "y": 0, "layer": 1},
+          {"x": 0, "y": 0, "layer": 1},
+          {"x": 0, "y": 0, "layer": 1}
+        ]
+    }
+  ]
+}

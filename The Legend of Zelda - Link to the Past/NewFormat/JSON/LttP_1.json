@@ -1,0 +1,12 @@
+{
+  "objects": [
+    {"tags": ["pot", "throwable", "solid" "breakable"],
+        "definition": "pot.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 0, "y": 0, "layer": 1, "contents": "heart"},
+          {"x": 0, "y": 0, "layer": 1, "contents": "heart"},
+        ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "objects": [
+    {"tags": ["enemy", "rocklops"],
+        "definition": "rocklops.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 32, "y": 50, "layer": 1},
+          {"x": 71, "y": 50, "layer": 1}
+        ]
+    },
+    {"tags": ["enemy", "stalfos"],
+        "definition": "stalfos.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 32, "y": 50, "layer": 1},
+          {"x": 50, "y": 60, "layer": 1},
+          {"x": 50, "y": 60, "layer": 1},
+          {"x": 71, "y": 50, "layer": 1}
+        ]
+    },
+    {"tags": ["chest", "bow"],
+        "definition": "chest.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 40, "y": 40, "layer": 1}
+        ]
+    },
+    {"tags": ["pot", "solid", "breakable", "throwable"],
+        "definition": "pot.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 40, "y": 40, "layer": 2, "contents": "heart"},
+          {"x": 40, "y": 40, "layer": 2, "contents": "arrow", "value": 5},
+          {"x": 40, "y": 40, "layer": 2, "contents": "arrow", "value": 5},
+          {"x": 40, "y": 40, "layer": 2, "contents": "arrow", "value": 5},
+          {"x": 40, "y": 40, "layer": 1, "contents": "heart"},
+          {"x": 40, "y": 40, "layer": 1, "contents": "heart"},
+          {"x": 40, "y": 40, "layer": 1, "contents": "none"},
+          {"x": 40, "y": 40, "layer": 1, "contents": "none"}
+        ]
+    }
+  ]
+}

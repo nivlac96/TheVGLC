@@ -1,0 +1,31 @@
+{
+  "objects": [
+    {"tags": ["trap", "ball"],
+        "definition": "ball.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 0, "y": 0, "layer": 2},
+          {"x": 0, "y": 0, "layer": 2},
+          {"x": 0, "y": 0, "layer": 2},
+          {"x": 0, "y": 0, "layer": 2, "type": "gargantuan"}
+        ]
+    },
+    {"tags": ["pot", "throwable", "solid", "breakable"],
+        "definition": "pot.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 0, "y": 0, "layer": 1, "contents": "heart"},
+          {"x": 0, "y": 0, "layer": 1, "contents": "heart"},
+          {"x": 0, "y": 0, "layer": 1, "contents": "rupee", "value": 5},
+          {"x": 0, "y": 0, "layer": 1, "contents": "rupee", "value": 5}
+        ]
+    },
+    {"tags": ["chest", "rupee"],
+        "definition": "chest.char.xml",
+        "definition_type": "hyped",
+        "instances" : [
+          {"x": 40, "y": 40, "layer": 1, "contents": "rupee", "value": 100}
+        ]
+    }
+  ]
+}
