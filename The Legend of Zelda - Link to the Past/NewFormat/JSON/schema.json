@@ -1,19 +1,154 @@
 {
+	"title" : "VGLC Room",
 	"type" : "object",
+	"definitions" : {
+		"resource_guard" : {
+			"type" : "object",
+			"properties" : {
+				"type" : "resource",
+				"res_type" : {"type" : "string"},
+				"op" : {"type" : "string", "enum" : ["=", ">", "<", ">=", "<="]},
+				"value" : {"type" : "number"}
+			}
+		},
+		"colliding_guard" : {
+			"type" : "object",
+			"properties" : {
+				"type" : "colliding",
+				"tags_1" : {"type" : "array", "items" : {"type" : "string"}},
+				"tags_2" : {"type" : "array", "items" : {"type" : "string"}}
+			}
+
+		},
+		"count_guard" : {
+			"type" : "object",
+			"properties" : {
+				"type" : "count",
+				"tags" : {"type" : "string"},
+				"op" : {"type" : "string", "enum" : ["=", ">", "<", ">=", "<="]},
+				"count" : {"type" : "number"}
+			}
+		},
+		"hit_guard" : {
+			"type" : "object",
+			"properties" : {
+				"type" : "hit",
+				"hurtbox" : {"type" : "string"},
+				"hitbox" : {"type" : "string"}
+			}
+		},
+		"resource_update" : {
+			"type" : "object",
+			"properties" : {
+				"type" : "resource",
+				"res_type" : {"type" : "string"},
+				"change" : {"type" : "number"}
+			}
+		},
+		"state_change_update" : {
+			"type" : "object",
+			"properties" : {
+				"type" : "state_change",
+				"obj" : {"type" : "string"},
+				"group" : {"type" : "string"},
+				"state" : {"type" : "string"}
+			}
+		},
+		"spawn_update" : {
+			"type" : "object",
+			"properties" : {
+				"type" : "spawn",
+				"obj" : {"type" : "string"},
+				"x" : {"type" : "string"},
+				"y" : {"type" : "string"}
+			}
+		}
+	},
+	"I wonder for the 'spawn_update' object what to do with the x and y properties, since what we use in the definition files is"
+	"'this.x' and 'this.y', but we also want to leave space for exact coordinates as well"
+
 	"properties" : {
 		"tiles" : {
 			"type" : "object",
 			"patternProperties" : {
 				"^[^=]{1}$" : {"type" : "array"}
 			},
-			"additionalProperties" : false;
+			"additionalProperties" : false
 		},
 
 		"tile_rules" : {
-			"type" : "object"
+			"type" : "object",
+			"patternProperties" : {
+				"string of any length" : {
+					"type" : "object"
+					"properties" {
+						"tile_tags" : {"type" : "array", "items" : {"type": "string"}},
+						"transition_tags" : {
+							"type" : "object",
+							"properties" : {
+								"persistent" : {"type" : "boolean"},
+								"permanent" : {"type" : "boolean"}
+							},
+							"required" : ["persistent", "permanent"]
+						},
+						"changes_to" : {"type" : "array", "items" : {"type": "string"}},
+						"guards" : {
+							"type" : "array",
+							"items" : [
+								{"type": "object", "enum" : [
+									{"$ref" : "#/definitions/resource_guard"}, 
+									{"$ref" : "#/definition/colliding_guard"}, 
+									{"$ref" : "#/definitions/count_guard"}, 
+									{"$ref" : "#/definition/hit_guard"}]} 
+							]
+						},
+						"updates" : {
+							"type" : "array",
+							"items" : [
+								{"type": "object", "enum" : [
+									{"$ref" : "#/definitions/resource_update"}, 
+									{"$ref" : "#/definition/state_change_update"}, 
+									{"$ref" : "#/definitions/spawn_update"}
+								]
+								}
+							]
+						}
+					}
+				}
+			}
 		},
 
+		"room_tags" : {
+			"type" : "array",
+			"items" : {"type" : "string"}
+		},
 
+		"objects" : {
+			"type" : "array",
+			"items" : [
+				{
+					"type" : "object",
+					"properties" : {
+						"tags" : {"type" : "array", "items" : {"type" : "string"}},
+						"definition" : {"type" : "string"},
+						"definition_type" : {"type" : "string", "enum" : ["hyped", "etc"]},
+						"instances" : {
+							"type" : "array",
+							"items" : {
+								"type" : "object",
+								"properties" : {
+									"x" : {"type" : "number"},
+									"y" : {"type" : "number"},
+									"layer" : {"type" : "number"},
+									"contents" : {"type" : "string"},
+									"value" : {"type" : "number"}
+								}
+							}
+						}
+					}
+				}
+			]
+		}
 
 	}
 }

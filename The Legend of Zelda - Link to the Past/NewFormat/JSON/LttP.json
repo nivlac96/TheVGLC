@@ -22,7 +22,7 @@
         {"type": "colliding", "tags_1": ["this"], "tags_2": ["player"]}
       ],
       "updates" : [
-        {"type": "resource", "res_type":"key", "change":"-1"}
+        {"type": "resource", "res_type":"key", "change":-1}
       ]
     },
     "unlock_door_enemy" : {
