@@ -1,0 +1,19 @@
+{
+	"type" : "object",
+	"properties" : {
+		"tiles" : {
+			"type" : "object",
+			"patternProperties" : {
+				"^[^=]{1}$" : {"type" : "array"}
+			},
+			"additionalProperties" : false;
+		},
+
+		"tile_rules" : {
+			"type" : "object"
+		},
+
+
+
+	}
+}
